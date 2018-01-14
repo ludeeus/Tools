@@ -27,7 +27,7 @@ echo ""
 echo -e "\e[31mThis workaround is no longer needed..."
 echo -e "\e[31mThis issue was resolved in the main repo 01/14/18..."
 echo -e "\e[31mRedirecting this installer to use the one in hassbian-config..."
-echo -e "\e[om"
+echo -e "\e[0m"
 
 if [ "$(id -u)" != "0" ]; then
 echo "This script must be run with sudo. Use \"sudo ${0} ${*}\"" 1>&2
