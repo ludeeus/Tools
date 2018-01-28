@@ -1,11 +1,12 @@
-[ -f /usr/bin/jq ] || echo "jq missing, run 'sudo apt install jq'" && exit
+#!/bin/bash
+# require JQ, run 'sudo apt install jq'
 
 read -p "Enter the version number: " VERSION
 echo "Verifying milestones..."
-MILESTONES=$(curl https://api.github.com/search/issues\?q\=milestone:v$VERSION+type:pr+repo:home-assistant/hassbian-scripts | jq -r '.items[]| "[#" +(.number|tostring) +"](" + .html_url + ") " + .title + " [@" + (.user | .login + "](" + .html_url + ")  ")')
+MILESTONES=$(curl https://api.github.com/search/issues\?q\=milestone:v$VERSION+$
 if [ ! "$MILESTONES" ]; then
-	echo "No milestones... aborting..."
-	exit
+        echo "No milestones... aborting..."
+        exit
 fi
 
 rm hassbian_config_$VERSION.md
