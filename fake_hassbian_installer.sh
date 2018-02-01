@@ -14,7 +14,7 @@ apt upgrade -y
 apr dist-upgrade
 
 echo "Installing additional software..."
-apt-get install -y git python3 curl python3-venv python3-pip bluetooth libbluetooth-dev rng-tools rpi-update htop tmux avahi-daemon libtool autoconf rfkill
+apt-get install -y git python3 curl python3-venv python3-pip bluetooth libbluetooth-dev rng-tools htop tmux avahi-daemon libtool autoconf rfkill
 pip3 install --upgrade virtualenv
 
 echo "Adding homeassistant user and install dir..."
