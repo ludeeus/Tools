@@ -1,8 +1,14 @@
 #!/bin/bash
+# This script will install hassbian-config on the unit.
+# With hassbian-config it will install Home Assistnat in an Python Virtual Enviorment, like the one in HASSbian.
+# I recomend using the Official HASSbian Image instead of this script.
+# https://home-assistant.io/docs/installation/hassbian/installation/
 #
 #Run this comand to install:
 # $ wget -O - https://raw.githubusercontent.com/ludeeus/tools/master/fake_hassbian_installer.sh | sudo bash -
 #
+# After the script is finished (takes about 10 min to run), you will have to wait for about 10 mins for Home Assistant to be ready.
+# 
 if [ "$(id -u)" != "0" ]; then
 echo "This script must be run with sudo. Use \"sudo ${0} ${*}\"" 1>&2
 exit 1
