@@ -1,3 +1,16 @@
+#### Breaking changes in 0.64:
+```
+ - #12271 - Purge recorder data by default.
+ - #12252 - Alph Vantage: Removed default sensor configuration.
+ - #12315 - Updated RainMachine to play better with the entity registry.
+ - #12319 - AirVisual: Entity Registry updates and cleanup.
+ - #12463 - Update voluputous.
+ - #12465 - bump usps version.
+ - #12475 - LimitlessLED assumed state.
+```
+Blog post for this release: <>
+
+
 #### Breaking changes in 0.63:
 ```
  - #12084 - Updated Thahoma sensor name.
