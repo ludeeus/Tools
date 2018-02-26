@@ -8,7 +8,7 @@
  - #12465 - bump usps version.
  - #12475 - LimitlessLED assumed state.
 ```
-Blog post for this release: <>
+Blog post for this release: <https://home-assistant.io/blog/2018/02/26/release-64/#breaking-changes>
 
 
 #### Breaking changes in 0.63:
