@@ -29,6 +29,7 @@ echo -e "\e[31mThis issue was resolved in the main repo 01/14/18..."
 echo -e "\e[31mRedirecting this installer to use the one in hassbian-config..."
 echo -e "\e[0m"
 read -p "Press [Enter] key to confirm..."
+hassbian-config upgrade hassbian-script
 hassbian-config install mosquitto --force
 }
 
