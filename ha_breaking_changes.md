@@ -1,3 +1,16 @@
+#### Breaking changes in 0.65:
+```
+ - #12534 - Insteon PLM: If you have created platform overrides in your configuration.yaml file to change a your INSTEON device to map to a different Home Assistant platform, that mapping will no longer be in effect. 
+ - #12730 - AirVisual’s air index unit is AQI (Air Quality Index), not PSI (Pressure per Square Inch).
+ - #12325 - TekSavvy Sensor: The sensor entity id's has been changed.
+ - #11994 - Egardia redesign - generic component and sensor support.
+ - #12934 - zip_code for the Pollen integration is now required to have quotes around it to prevent accidental errors.
+ - #12959 - Google Assistant integration: It is no longer possible to override the domain that Home Assistant uses for an entity. 
+ - #12971 - The LimitlessLED white temperature range has been adjusted and should now match the Mi-Light smartphone app for identical Kelvin values. 
+```
+Blog post for this release: <https://home-assistant.io/blog/2018/03/09/release-65/#breaking-changes>
+
+
 #### Breaking changes in 0.64:
 ```
  - #12271 - Purge recorder data by default.
