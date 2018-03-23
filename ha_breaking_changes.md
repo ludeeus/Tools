@@ -1,3 +1,16 @@
+#### Breaking changes in 0.66:
+```
+ - #12652 - Remove Z-Wave old/new entity_id attributes.
+ - #12926 - Python Spotcrime sensor requires API key.
+ - #13190 - Smappee: Fixed SI units for current consumption.
+ - #13148 - Systemmonitor: Report swap in MiB.
+ - #12997 - HomeKit Restructure (new config options).
+ - #13231 - Tibber use appNickname as name.
+ - #13043 - Refactor Hue: phue -> aiohue.
+ - #13415 - Darksky: Fix incorrect unit of measurement for precip_intensity.
+```
+Blog post for this release: <https://home-assistant.io/blog/2018/03/09/release-66/#breaking-changes>
+
 #### Breaking changes in 0.65:
 ```
  - #12534 - Insteon PLM: If you have created platform overrides in your configuration.yaml file to change a your INSTEON device to map to a different Home Assistant platform, that mapping will no longer be in effect. 
