@@ -1,15 +1,16 @@
 #### Breaking changes in 0.66:
 ```
- - #12652 - Remove Z-Wave old/new entity_id attributes.
- - #12926 - Python Spotcrime sensor requires API key.
- - #13190 - Smappee: Fixed SI units for current consumption.
- - #13148 - Systemmonitor: Report swap in MiB.
- - #12997 - HomeKit Restructure (new config options).
- - #13231 - Tibber use appNickname as name.
- - #13043 - Refactor Hue: phue -> aiohue.
- - #13415 - Darksky: Fix incorrect unit of measurement for precip_intensity.
+ - #12652 - Z-Wave: In version 0.47, the opt-in new_entity_ids configuration was added to Z-Wave to smooth the transition through the change.
+ - #12926 - Spotcrime sensor: This update changes the sensor to require a user supplied API key as a configuration entry.
+ - #13190 - Smappee sensor: Fixed SI units for current consumption. Total consumption should be in kWh. not kW.
+ - #13148 - System monitor sensor: Used and available swap space reported by the system monitor component is now measured in MiB instead of GiB.
+ - #12997 - HomeKit: The pincode parameter is deprecated, since the HomeKit component will now generate one for you and display it as a persistence notification during setup.
+ - #13231 - Tibber: The name and the entity id for the Tibber sensor will now be the same as the nickname from the app.
+ - #13043 - Refactor Hue: If you specify a bridge in your config, the host key is now required and needs to be a valid ip address. Option allow_in_emulated_hue has been removed.
+ - #13415 - Darsky sensor: Fix the incorrect unit of measurement for the ‘Precip Intensity’ and ‘Daily Max Precip Intensity’ for IS units according to the dark sky api documentation.
+ - #11980 - HomeMatic: Locks are now under the lock component.
 ```
-Blog post for this release: <https://home-assistant.io/blog/2018/03/09/release-66/#breaking-changes>
+Blog post for this release: <https://www.home-assistant.io/blog/2018/03/30/release-66/#breaking-changes>
 
 #### Breaking changes in 0.65:
 ```
