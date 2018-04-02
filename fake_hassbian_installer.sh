@@ -17,7 +17,7 @@ fi
 echo "Updating distro..."
 apt update
 apt upgrade -y
-apr dist-upgrade
+apt dist-upgrade
 
 echo "Installing additional software..."
 apt-get install -y git python3 curl python3-venv python3-pip bluetooth libbluetooth-dev rng-tools htop tmux avahi-daemon libtool autoconf rfkill
