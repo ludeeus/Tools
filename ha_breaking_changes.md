@@ -1,3 +1,14 @@
+#### Breaking changes in 0.67:
+```
+ - #13419 - Pilight: Updates default port number.
+ - #13305 - BMW ConnectedDrive: Update to new “b2vapi”.
+ - #13538 - MercedesME: Removed component.
+ - #13624 - Webostv: Channel up and down.
+ - #13612 - Mediap layer:Add media type separation for video/movie.
+ - #13642 - Broadlink: Added ENTITY_ID_FORMAT import and set entity_id in init.
+```
+Blog post for this release: <https://www.home-assistant.io/blog/2018/04/13/release-67/#breaking-changes>
+
 #### Breaking changes in 0.66:
 ```
  - #12652 - Z-Wave: In version 0.47, the opt-in new_entity_ids configuration was added to Z-Wave to smooth the transition through the change.
