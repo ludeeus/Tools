@@ -1,3 +1,11 @@
+#### Breaking changes in 0.68:
+```
+ - Icons! Material Design Icons has implemented some naming guidelines and this caused 9 icons to change names, 3 of which are home automation icons: roomba -> robot-vacuum, nest-protect -> smoke-detector, nest-thermostat -> thermostat.
+ - #13517 - Support for multiple MAX!Cube LAN gateways caused a slight change to the configuration schema. Make sure to check the docs for the new one.
+ - #14003 - Ebox sensor platform has been disabled because the dependency was not compatible with pip 10.
+```
+Blog post for this release: <https://www.home-assistant.io/blog/2018/04/27/release-68/#breaking-changes>
+
 #### Breaking changes in 0.67:
 ```
  - #13419 - Pilight: Updates default port number.
