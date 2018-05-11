@@ -1,3 +1,17 @@
+#### Breaking changes in 0.69:
+```
+ - #14018 - Pollen.com: Added attributes on top 3 allergens. This caused attribute names primary_allergen_genus, primary_allergen_name and primary_allergen_type to be suffixed with _1.
+ - #13553 - Add Sonos device attribute with grouping information. The media_player.sonos attribute is_coordinator has been removed; the new attribute sonos_group (listing all group members, coordinator first) can be used instead.
+ - #13468 - Re-implement HomematicIP cloud to async. Change of configuration schema: name is optional and cannot be empty.
+ - #14102 - System log: make firing event optional.
+ - #14085 - Move RainMachine to component/hub model and remove Remote API. NB!: New config!
+ - #14225 - Converts RainMachine to hub model (part 2).
+ - #14277 - Homekit: Changed device_class requirement Humidity Sensor.
+ - #14252 - The sensor unit lux has been replaced with lx for consistency. That covers the following sensor platforms: homematic, isy994, miflora, mysensors, tahoma, vera and template sensors.
+ - #13355 - The Matrix notification platform now depends on the the new Matrix component. Please see the documentation for how to configure the Matrix component. 
+```
+Blog post for this release: <https://www.home-assistant.io/blog/2018/05/11/release-69/#breaking-changes>
+
 #### Breaking changes in 0.68:
 ```
  - Icons! Material Design Icons has implemented some naming guidelines and this caused 9 icons to change names, 3 of which are home automation icons: roomba -> robot-vacuum, nest-protect -> smoke-detector, nest-thermostat -> thermostat.
