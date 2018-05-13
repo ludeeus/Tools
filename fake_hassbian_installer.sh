@@ -1,7 +1,7 @@
 #!/bin/bash
 # This script will install hassbian-config on the unit.
 # With hassbian-config it will install Home Assistnat in an Python Virtual Enviorment, like the one in HASSbian.
-# !!! I recomend using the Official HASSbian Image instead of this script. !!!
+# !!! I recomend using the Official Hassbian Image instead of this script. !!!
 # https://home-assistant.io/docs/installation/hassbian/installation/
 #
 #Run this comand to install:
@@ -29,7 +29,10 @@ useradd -u 1001 -g homeassistant -rm homeassistant
 mkdir /srv/homeassistant
 chown homeassistant:homeassistant -R /srv/homeassistant
 chown homeassistant:homeassistant -R /home/homeassistant
-usermod -G dialout,i2c,gpio,spi -a homeassistant
+usermod -G dialout -a homeassistant
+usermod -G i2c -a homeassistant
+usermod -G gpio -a homeassistant
+usermod -G spi -a homeassistant
 
 
 echo "Downloading and installing hassbian-config..."
