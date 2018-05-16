@@ -1,0 +1,163 @@
+ssl							on;
+ssl_certificate 			/ssl/fullchain.pem;
+ssl_certificate_key 		/ssl/privkey.pem;
+ssl_session_cache    		shared:SSL:60m;
+ssl_session_timeout  		10m;
+ssl_protocols 				TLSv1 TLSv1.1 TLSv1.2;
+ssl_prefer_server_ciphers 	on;
+ssl_ciphers 				"EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384 EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+aRSA+RC4 EECDH EDH+aRSA RC4 !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS +RC4 RC4";
+proxy_set_header 			Upgrade				$http_upgrade;
+proxy_set_header 			Connection 			$connection_upgrade;
+proxy_set_header 			X-Forwarded-For 	$proxy_add_x_forwarded_for;
+proxy_set_header   			X-Real-IP			$remote_addr;
+proxy_read_timeout 			90;
+
+server {
+	listen			443 ssl;
+	server_name		ha.mydomain.tld;
+	location / {
+		proxy_pass 	http://127.0.0.1:8123/;
+	}
+}
+
+server {
+	listen			443 ssl;
+	server_name		homeassistant-rc.mydomain.tld;
+	location / {
+        proxy_pass 	http://127.0.0.1:32866/;
+	}
+}
+
+server {
+	listen			443 ssl;
+	server_name		homeassistant-dev.mydomain.tld;
+	location / {
+		proxy_pass 	http://127.0.0.1:32865/;
+	}
+}
+
+server {
+	listen			443 ssl;
+	server_name		guest.mydomain.tld;
+	location / {
+		proxy_pass 	http://127.0.0.1:32847/;
+	}
+}
+
+server {
+	listen			443 ssl;
+	server_name		test.mydomain.tld;
+	location / {
+		proxy_pass 	http://127.0.0.1:32847/;
+	}
+}
+
+server {
+	listen			443 ssl;
+	server_name		files.mydomain.tld;
+	location / {
+		proxy_pass 	http://127.0.0.1:8989/;      
+	}
+}
+
+server {
+	listen			443 ssl;
+	server_name		bin.mydomain.tld;
+	location / {
+		proxy_pass 	http://127.0.0.1:7777/;
+	}
+}
+
+server {
+	listen			443 ssl;
+	server_name		pihole.mydomain.tld;
+	location / {
+		proxy_pass 	http://127.0.0.1:80/admin/;
+	}
+}
+
+server {
+	listen			443 ssl;
+	server_name		phlex.mydomain.tld;
+	location / {
+		proxy_pass 	http://127.0.0.1:5666/;
+	}
+}
+
+server {
+	listen			443 ssl;
+	server_name		esxi.mydomain.tld;
+	location / {
+		proxy_pass 	https://192.168.1.2:443/;
+	}
+}
+
+server {
+	listen			443 ssl;
+	server_name		portainer.mydomain.tld;
+	location / {
+		proxy_pass 	http://127.0.0.1:9001/;
+	}
+}
+
+server {
+	listen			443 ssl;
+	server_name		router.mydomain.tld;
+	location / {
+		proxy_pass 	http://192.168.1.1:80/;
+	}
+}
+
+
+server {
+	listen			443 ssl;
+	server_name		netdata.mydomain.tld;
+	location / {
+		proxy_pass 	http://127.0.0.1:19999;
+	}
+}
+
+
+server {
+	listen			443 ssl;
+	server_name		status.mydomain.tld;
+	location / {
+		proxy_pass 	http://127.0.0.1:8000;
+	}
+}
+
+server {
+	listen			443 ssl;
+	server_name		plex-stats.mydomain.tld;
+	location / {
+		proxy_pass 	http://127.0.0.1:32867;
+	}
+}
+
+server  {
+	listen			443 ssl;
+	server_name		plex.mydomain.tld;
+	location  / {
+		proxy_pass 	http://127.0.0.1:32400/; #IP of Plex Media Server
+		proxy_buffering off;
+		proxy_cookie_path /web/ /;
+		access_log off;
+	}
+}
+
+server {
+	listen			443 ssl;
+	server_name		git.mydomain.tld;
+	return 301 https://github.com/ludeeus;
+}
+
+ server {
+	listen   443 ssl;
+	root /usr/share/nginx/html;
+	index index.html index.htm;
+	server_name mydomain.tld www.mydomain.tld;
+	location / {
+		default_type "text/html";
+		try_files $uri.html $uri $uri/ /index.html;
+	}
+}
