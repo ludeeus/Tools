@@ -46,7 +46,7 @@ server {
 
 server {
 	listen			443 ssl;
-	server_name		test.mydomain.tld;
+	server_name		ha-test.mydomain.tld;
 	location / {
 		proxy_pass 	http://127.0.0.1:32847/;
 	}
