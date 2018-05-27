@@ -10,6 +10,9 @@ set_pixel:
     blue:
       description: 'Sets value for the color red.'
       example: 0
+    white:
+      description: 'Sets white value.'
+      example: 0
     from:
       description: 'Define start pixel.'
       example: 10

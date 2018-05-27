@@ -13,6 +13,7 @@ ATTR_GREEN = 'green'
 ATTR_BLUE = 'blue'
 ATTR_FROM = 'from'
 ATTR_TO = 'to'
+ATTR_WHITE = 'white'
 
 MQTT_SERVER = '172.17.0.1'
 MQTT_TOPIC = '"led/kitchen/set"'
@@ -28,6 +29,11 @@ def setup(hass, config):
 		blue = call.data.get(ATTR_BLUE)
 		if blue == None:
 			blue = 0
+		white = call.data.get(ATTR_WHITE)
+		if white == None:
+			white = 0
+		else:
+			white = ""
 		start = call.data.get(ATTR_FROM)
 		stop = call.data.get(ATTR_TO)
 		count = start
@@ -39,8 +45,10 @@ def setup(hass, config):
 					'g': green,
 					'b': blue
 					},
+                'white_value': white,
 				'effect': 'pixel', 
 				'pixel': count}
+            
 			subprocess.call(['mosquitto_pub', '-h',
                 MQTT_SERVER, '-t', MQTT_TOPIC, '-m', str(string)])
 			count = count +1
