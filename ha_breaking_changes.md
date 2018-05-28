@@ -1,3 +1,12 @@
+#### Breaking changes in 0.70:
+
+ - [#12915](https://github.com/home-assistant/home-assistant/pull/12915) - Converted SABnzbd to a component.
+ - [#14293](https://github.com/home-assistant/home-assistant/pull/14293) - For BMW electric cars: The current sensor remaining_range_fuel is replaced by remaining_range_total for cars with a combustion engine.
+ - [#14358](https://github.com/home-assistant/home-assistant/pull/14358) - Removed simplepush.io becayse website is offline and apps are no longer available.
+ - [#12233](https://github.com/home-assistant/home-assistant/pull/12233) - DarkSky sensor: Added temperature (apparent) high/low, deprecated max/min.
+
+Blog post for this release: <https://www.home-assistant.io/blog/2018/05/27/release-70/#breaking-changes>
+
 #### Breaking changes in 0.69:
 ```
  - #14018 - Pollen.com: Added attributes on top 3 allergens. This caused attribute names primary_allergen_genus, primary_allergen_name and primary_allergen_type to be suffixed with _1.
