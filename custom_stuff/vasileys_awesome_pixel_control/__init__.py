@@ -22,34 +22,35 @@ def setup(hass, config):
 	def set_pixel_service(call):
 		red = call.data.get(ATTR_RED)
 		if red == None:
-			red = 0
+			red = "'r': 0,"
+		else:
+			red = "'r': " + str(red) + ","
 		green = call.data.get(ATTR_GREEN)
 		if green == None:
-			green = 0
+			green = "'g': 0,"
+		else:
+			green = "'g': " + str(green) + ","
 		blue = call.data.get(ATTR_BLUE)
 		if blue == None:
-			blue = 0
+			blue = "'b': 0,"
+		else:
+			blue = "'b': " + str(blue) + ","
 		white = call.data.get(ATTR_WHITE)
 		if white == None:
-			white = 0
+			white = "'white_value': 255,"
 		else:
-			white = ""
+			white = "'white_value': " + str(white) + ","
 		start = call.data.get(ATTR_FROM)
 		stop = call.data.get(ATTR_TO)
 		topic = call.data.get(ATTR_TOPIC)
+		mqtt.async_publish(hass, topic, "{'state': 'OFF'}", 1, False)
 		count = start
 		while (count <= stop):
-			string = {
-                'state': 'ON',
-				'color': {
-					'r': red,
-					'g': green,
-					'b': blue
-					},
-                'white_value': white,
-				'effect': 'pixel', 
-				'pixel': count}
-			mqtt.async_publish(hass, topic, str(string), 1, False)
+			string_init = "{'state': 'ON', 'color': {"
+			string_main = red + green + blue + white
+			string_end = "'effect': 'pixel', 'pixel':" + str(count) + "}"
+			payload = string_init + string_main + string_end
+			mqtt.async_publish(hass, topic, str(payload), 1, False)
 			count = count +1
 	hass.services.register(DOMAIN, 'set_pixel', set_pixel_service)
 	return True
