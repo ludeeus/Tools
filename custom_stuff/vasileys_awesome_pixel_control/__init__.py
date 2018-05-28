@@ -32,9 +32,9 @@ def setup(hass, config):
 			green = "'g': " + str(green) + ","
 		blue = call.data.get(ATTR_BLUE)
 		if blue == None:
-			blue = "'b': 0,"
+			blue = "'b': 0"
 		else:
-			blue = "'b': " + str(blue) + ","
+			blue = "'b': " + str(blue)
 		white = call.data.get(ATTR_WHITE)
 		if white == None:
 			white = "'white_value': 255,"
@@ -47,7 +47,7 @@ def setup(hass, config):
 		count = start
 		while (count <= stop):
 			string_init = "{'state': 'ON', 'color': {"
-			string_main = red + green + blue + white
+			string_main = red + green + blue + "}," + white
 			string_end = "'effect': 'pixel', 'pixel':" + str(count) + "}"
 			payload = string_init + string_main + string_end
 			mqtt.async_publish(hass, topic, str(payload), 1, False)
