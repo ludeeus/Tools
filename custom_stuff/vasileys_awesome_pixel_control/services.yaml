@@ -1,6 +1,9 @@
 set_pixel:
   description: 'Sets pixel value.'
   fields:
+    topic:
+      description: 'Define the topic to use.'
+      example: '/kitchen/LED1/set'
     red:
       description: 'Sets value for the color red.'
       example: 0

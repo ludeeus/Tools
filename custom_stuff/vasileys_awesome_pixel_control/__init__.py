@@ -4,19 +4,19 @@ Add this to configuration.yaml
 vasileys_awesome_pixel_control:
 """
 
-import subprocess
+import homeassistant.components.mqtt as mqtt
+
+DEPENDENCIES = ['mqtt']
 
 DOMAIN = 'vasileys_awesome_pixel_control'
 
+ATTR_TOPIC = 'topic'
 ATTR_RED = 'red'
 ATTR_GREEN = 'green'
 ATTR_BLUE = 'blue'
 ATTR_FROM = 'from'
 ATTR_TO = 'to'
 ATTR_WHITE = 'white'
-
-MQTT_SERVER = '172.17.0.1'
-MQTT_TOPIC = '"led/kitchen/set"'
 
 def setup(hass, config):
 	def set_pixel_service(call):
@@ -36,6 +36,7 @@ def setup(hass, config):
 			white = ""
 		start = call.data.get(ATTR_FROM)
 		stop = call.data.get(ATTR_TO)
+		topic = call.data.get(ATTR_TOPIC)
 		count = start
 		while (count <= stop):
 			string = {
@@ -48,9 +49,7 @@ def setup(hass, config):
                 'white_value': white,
 				'effect': 'pixel', 
 				'pixel': count}
-            
-			subprocess.call(['mosquitto_pub', '-h',
-                MQTT_SERVER, '-t', MQTT_TOPIC, '-m', str(string)])
+			mqtt.async_publish(hass, topic, str(string), 1, False)
 			count = count +1
 	hass.services.register(DOMAIN, 'set_pixel', set_pixel_service)
 	return True
