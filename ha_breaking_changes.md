@@ -1,11 +1,14 @@
 #### Breaking changes in 0.71:
 
- - [#12915](https://github.com/home-assistant/home-assistant/pull/12915) - Converted SABnzbd to a component.
- - [#14293](https://github.com/home-assistant/home-assistant/pull/14293) - For BMW electric cars: The current sensor remaining_range_fuel is replaced by remaining_range_total for cars with a combustion engine.
- - [#14358](https://github.com/home-assistant/home-assistant/pull/14358) - Removed simplepush.io becayse website is offline and apps are no longer available.
- - [#12233](https://github.com/home-assistant/home-assistant/pull/12233) - DarkSky sensor: Added temperature (apparent) high/low, deprecated max/min.
+ - [#14541](https://github.com/home-assistant/home-assistant/pull/14541) - BOM sensor: `'Wind Direction kt'` to `'Wind Speed kt'`
+ - [#14584](https://github.com/home-assistant/home-assistant/pull/14584) - Removed attribute current_time from Raincloudy sensors to avoid being triggered by recorder component.
+ - [#14594](https://github.com/home-assistant/home-assistant/pull/14594) - Remove Notify My Android component as it shut down on May 24.
+ - [#14604](https://github.com/home-assistant/home-assistant/pull/14604) - CoinMarketCap sensor: It is no longer possible to query a ticker by the name of the currency.
+ - [#14353](https://github.com/home-assistant/home-assistant/pull/14353) - Give unknown zwave nodes a better name and don’t add them to entity registry.
+ - [#14613](https://github.com/home-assistant/home-assistant/pull/14613) - The netdata sensor was re-worked to support all available details from Netdata.
+ - [#14724](https://github.com/home-assistant/home-assistant/pull/14724) - Disallow automation.trigger without entity_id.
 
-Blog post for this release: <https://www.home-assistant.io/blog/2018/05/27/release-70/#breaking-changes>
+Blog post for this release: <https://www.home-assistant.io/blog/2018/06/08/release-71/#breaking-changes>
 
 #### Breaking changes in 0.70:
 
